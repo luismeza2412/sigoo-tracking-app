@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-content: center;
   justify-content: center;
+  margin-top: 15%;
 `;
 
 export const Card = styled.div`
