@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Container, TabsNav, TabButton, Content, TabContent, ContainerInfo, ContainerItem, TitleInfo, DataInfo, Section, Title, Subtitle, Strong, Button, Description, StatusLineWrapper, StatusLineContainer, StatusItem, StatusIcon, StatusConnector, DateText, StatusTitle, Icon } from './detail.styled';
+import { Container, TabsNav, TabButton, Content, TabContent, ContainerInfo, ContainerItem, TitleInfo, DataInfo, Section, Title, Subtitle, Strong, Button, Description, StatusLineWrapper, StatusLineContainer, StatusItem, StatusIcon, StatusConnector, DateText, StatusTitle, Icon, GeneralCont } from './detail.styled';
 import { useGuia } from "../context/GuiaContext";
 
 const DetailPage: React.FC = () => {
@@ -26,10 +26,10 @@ const DetailPage: React.FC = () => {
   
 
   const statuses: Status[] = [
-    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '01/01/2024', title: 'Estado 1', completed: true },
-    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '02/01/2024', title: 'Estado 2', completed: false },
-    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '03/01/2024', title: 'Estado 3', completed: false, current: true },
-    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '04/01/2024', title: 'Estado 4', completed: false },
+    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '01/01/2024', title: 'Estado 1', completed: true,  },
+    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '02/01/2024', title: 'Estado 2', completed: false, },
+    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '03/01/2024', title: 'Estado 3', completed: false,  },
+    { icon: 'assets/Rastrear guía 00480569909 _ coordinadora-1.svg', date: '04/01/2024', title: 'Estado 4', completed: false, current: true },
   ];
 
   const completedCount = statuses.filter(status => status.completed || status.current).length;
@@ -58,6 +58,7 @@ const DetailPage: React.FC = () => {
 
 
 
+<GeneralCont>
 <Section>
     <div>
       <div>
@@ -65,7 +66,7 @@ const DetailPage: React.FC = () => {
           Información General de Envío 
         </Title>
         <Subtitle>
-          Guía nivel 1: <span>{guia}</span>
+          Guía nivel 1: <span><strong>{guia}</strong></span>
         </Subtitle>
         <Subtitle>
           Unidades: <span>1</span>
@@ -87,8 +88,8 @@ const DetailPage: React.FC = () => {
   <StatusLineWrapper>
       <StatusLineContainer lineWidth={lineWidthPercentage}>
         {statuses.map((status, index) => (
-          <StatusItem key={index} completed={status.completed} current={status.current}>
-            <StatusIcon>
+          <StatusItem key={index}>
+            <StatusIcon key={index} completed={status.completed} current={status.current}>
               <Icon src={status.icon} alt={status.title} />
             </StatusIcon>
             <StatusConnector />
@@ -242,6 +243,7 @@ const DetailPage: React.FC = () => {
           <TabContent id="tabC" isActive={activeTabBottom === 'tabC'}>Información de detalle</TabContent>
         </Content>
       </Container>
+</GeneralCont>
     </div>
   );
 };

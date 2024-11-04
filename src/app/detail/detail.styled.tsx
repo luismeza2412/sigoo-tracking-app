@@ -7,9 +7,17 @@ export const Container = styled.section`
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
   padding: 20px;
+
 `;
+
+export const GeneralCont = styled.div`
+width: 100%;
+  max-width: 1104px;
+  align-content: center;
+  margin: 20px 20% 20px 20%;
+  padding: 20px;
+`
 
 export const TabsNav = styled.nav`
   display: flex;
@@ -99,8 +107,7 @@ export const Title = styled.h1`
   color: #086bb5;
   font-weight: bold;
   font-size: 18pt;
-  margin: 0.5em;
-  font-weight: 400;
+  font-weight: 500;
 
   span {
     color: #000;
@@ -109,10 +116,11 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h5`
-  font-size: 14pt;
-  margin: 0.3rem;
+font-size: 14pt;
+margin-top: 0;
+margin-bottom: 10px;
   color: #086bb5;
-  font-weight: 400;
+  font-weight: 500;
 
   span {
     color: #000;
@@ -166,11 +174,13 @@ export const StatusLineContainer = styled.div<StatusLineContainerProps>`
   justify-content: space-between;
   position: relative;
   width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 
   &::before {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 0;
     height: 2px;
     background-color: #003C82;
@@ -190,8 +200,8 @@ export const StatusItem = styled.div<StatusItemProps>`
 export const StatusIcon = styled.div<StatusItemProps>`
   background-color: ${({ completed }) => (completed ? '#003C82' : '#E1EDFB')};
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,8 +210,8 @@ export const StatusIcon = styled.div<StatusItemProps>`
   ${({ current }) => current && `border: 3px solid ##003C82;`}
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     fill: #fff;
   }
 `;
